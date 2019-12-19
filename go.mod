@@ -1,5 +1,7 @@
 module github.com/mbobakov/grpc-consul-resolver
 
+go 1.12
+
 require (
 	github.com/armon/go-metrics v0.3.0 // indirect
 	github.com/go-playground/form v3.1.3+incompatible
