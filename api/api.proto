@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "api";
+
+import "empty.proto";
+
+message SleepDuration {
+  int32 sec = 1;
+}
+
+service Sleeper {
+  rpc Sleep(SleepDuration) returns (google.protobuf.Empty);
+}
