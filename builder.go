@@ -2,29 +2,30 @@ package consul
 
 import (
 	"context"
+	"fmt"
 	"strings"
 
 	"github.com/hashicorp/consul/api"
-	"github.com/pkg/errors"
 	"google.golang.org/grpc/resolver"
 )
 
 // schemeName for the urls
-// All target URLs like 'consul://.../...' will be resolved by this resolver
+// All target URLs like 'consul://.../...' will be resolved by this resolver.
 const schemeName = "consul"
 
-// builder implements resolver.Builder and use for constructing all consul resolvers
+// builder implements resolver.Builder and use for constructing all consul resolvers.
 type builder struct{}
 
 func (b *builder) Build(url resolver.Target, cc resolver.ClientConn, opts resolver.BuildOptions) (resolver.Resolver, error) {
 	dsn := strings.Join([]string{schemeName + ":/", url.Authority, url.Endpoint}, "/")
 	tgt, err := parseURL(dsn)
 	if err != nil {
-		return nil, errors.Wrap(err, "Wrong consul URL")
+		return nil, fmt.Errorf("invalid consul URL: %w", err)
 	}
+
 	cli, err := api.NewClient(tgt.consulConfig())
 	if err != nil {
-		return nil, errors.Wrap(err, "Couldn't connect to the Consul API")
+		return nil, fmt.Errorf("failed to connect to the ConsulAPI: %w", err)
 	}
 
 	ctx, cancel := context.WithCancel(context.Background())
