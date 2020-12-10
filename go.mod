@@ -4,7 +4,7 @@ go 1.14
 
 require (
 	github.com/armon/go-metrics v0.3.2 // indirect
-	github.com/go-playground/form v3.1.4+incompatible
+	github.com/go-playground/form/v4 v4.1.1
 	github.com/golang/mock v1.4.4
 	github.com/google/btree v1.0.0 // indirect
 	github.com/hashicorp/consul/api v1.8.0
@@ -17,5 +17,4 @@ require (
 	golang.org/x/net v0.0.0-20200202094626-16171245cfb2 // indirect
 	google.golang.org/genproto v0.0.0-20200210034751-acff78025515 // indirect
 	google.golang.org/grpc v1.31.1
-	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
 )
