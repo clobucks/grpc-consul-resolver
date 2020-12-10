@@ -7,7 +7,7 @@ require (
 	github.com/go-playground/form/v4 v4.1.1
 	github.com/golang/mock v1.4.4
 	github.com/google/btree v1.0.0 // indirect
-	github.com/hashicorp/consul/api v1.8.0
+	github.com/hashicorp/consul/api v1.7.0
 	github.com/hashicorp/go-immutable-radix v1.1.0 // indirect
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/jpillora/backoff v1.0.0
